@@ -37,7 +37,11 @@ This maps to the role's AWS, Terraform, Kubernetes, CI/CD, Datadog, incident-com
 
 ```bash
 python3 -m unittest discover -s tests -v
+python3 -m src.app < examples/canary.jsonl
 ```
+
+The JSONL scenario makes both the promote and rollback paths directly
+reproducible for a CI/CD adapter or reviewer.
 
 ## How this would run in production
 
