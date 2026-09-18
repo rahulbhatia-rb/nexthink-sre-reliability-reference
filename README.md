@@ -12,6 +12,14 @@ The key engineering rule is that delivery speed is conditional on reliability: a
 
 This maps to the role's AWS, Terraform, Kubernetes, CI/CD, Datadog, incident-command and multi-tenant SaaS requirements without claiming access to Nexthink infrastructure.
 
+## Working component
+
+`src/reliability_gate.py` implements the decision point: healthy signals **promote** a canary, an SLO or error-budget concern **holds** promotion, and an elevated canary error rate **rolls back**. `tests/test_reliability_gate.py` validates all three paths.
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
 ## Candidate links
 
 - https://www.linkedin.com/in/rahul-h-bhatia/
